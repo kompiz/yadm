@@ -111,6 +111,11 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# Set locale to UTF8
+
+export LC_ALL=sv_SE.UTF-8
+export LC_CTYPE=sv_SE.UTF-8
+
 # Aliases
 alias k="kubectl"
 alias kctx="kubectx"
