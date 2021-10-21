@@ -14,3 +14,6 @@ map f w
 
 syn on
 set background=dark
+
+noremap <C-Up> 5k
+noremap <C-Down> 5j
