@@ -1,6 +1,10 @@
 " Make shift+enter insert line without entering insert mode (note: shift+enter sends escape sequence "[13;2u", added in iterm2)
 nnoremap <S-Enter> moO<Esc>`o
 
+" Make vim use 256 colors
+set t_Co=256
+
+
 " Make shift+spacebar insert blankspace
 " nnoremap <S-Space> i<Space><Esc>
 " Need to figure out proper escape sequence and add to iterm2 in order to work
