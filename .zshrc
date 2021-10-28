@@ -126,6 +126,7 @@ export LC_CTYPE=sv_SE.UTF-8
 
 # Aliases
 alias k="kubectl"
+alias kw="kubectl --watch"
 alias kctx="kubectx"
 alias kns="kubens"
 alias mp="multipass"
