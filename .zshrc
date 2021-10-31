@@ -124,6 +124,9 @@ export EDITOR="$VISUAL"
 export LC_ALL=sv_SE.UTF-8
 export LC_CTYPE=sv_SE.UTF-8
 
+# Hack to make watch accept aliases
+alias watch='watch '
+
 # Aliases
 alias k="kubectl"
 alias kw="kubectl --watch"
