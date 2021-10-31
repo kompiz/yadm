@@ -79,13 +79,13 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git lxd)
 
-
-# Check for lxd plugin existence, add autocomplete if so
-#if [ -d "$HOME/.oh-my-zsh/plugins/lxd-completion-zsh" ]
-#plugins=(git lxd-completion-zsh)
-#fi
+#Check for lxd-completion-zsh, load if exists
+if [ -d $HOME/.oh-my-zsh/lxd-completion-zsh ]; then
+  plugins=(git lxd-completion-zsh)
+else
+  plugins=(git)
+fi
 
 source $ZSH/oh-my-zsh.sh
 
