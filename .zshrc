@@ -79,7 +79,13 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git lxd)
+
+
+# Check for lxd plugin existence, add autocomplete if so
+#if [ -d "$HOME/.oh-my-zsh/plugins/lxd-completion-zsh" ]
+#plugins=(git lxd-completion-zsh)
+#fi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -116,6 +122,7 @@ source $ZSH/oh-my-zsh.sh
 source <(kubectl completion zsh)
 complete -F __start_kubectl k
 
+
 # Set default editor to vim
 export VISUAL=vim
 export EDITOR="$VISUAL"
@@ -132,4 +139,3 @@ alias k="kubectl"
 alias kw="kubectl --watch"
 alias kctx="kubectx"
 alias kns="kubens"
-alias mp="multipass"
