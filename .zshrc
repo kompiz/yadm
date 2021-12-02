@@ -81,11 +81,7 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 
 #Check for lxd-completion-zsh, load if exists
-if [ -d $HOME/.oh-my-zsh/plugins/lxd-completion-zsh ]; then
   plugins=(git lxd-completion-zsh terraform)
-else
-  plugins=(git)
-fi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -140,3 +136,5 @@ alias kw="kubectl --watch"
 alias kctx="kubectx"
 alias kns="kubens"
 alias tf="terraform"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
