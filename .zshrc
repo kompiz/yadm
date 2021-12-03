@@ -136,5 +136,3 @@ alias kw="kubectl --watch"
 alias kctx="kubectx"
 alias kns="kubens"
 alias tf="terraform"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
