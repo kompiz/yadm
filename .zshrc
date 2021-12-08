@@ -81,7 +81,7 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 
 #Check for lxd-completion-zsh, load if exists
-  plugins=(git lxd-completion-zsh terraform)
+  plugins=(git lxd terraform)
 
 source $ZSH/oh-my-zsh.sh
 
