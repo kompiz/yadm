@@ -80,8 +80,7 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-#Check for lxd-completion-zsh, load if exists
-  plugins=(git lxd terraform)
+plugins=(git lxd-completion-zsh terraform)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -116,7 +115,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Kubectl autocompletion
 source <(kubectl completion zsh)
-complete -F __start_kubectl k
+complete -F __start_kubectl kc
 
 
 # Set default editor to vim
@@ -131,8 +130,17 @@ export LC_CTYPE=sv_SE.UTF-8
 alias watch='watch '
 
 # Aliases
-alias k="kubectl"
+alias kc="kubectl"
+alias kg="kubectl get"
+alias kd="kubectl describe"
 alias kw="kubectl --watch"
+alias kgpo="kubectl get pods -o wide"
+alias kgi="kubectl get ingress"
+alias kgir="kubectl get ingressroute"
 alias kctx="kubectx"
 alias kns="kubens"
 alias tf="terraform"
+alias ip="ip -c -br"
+
+# Use all config.*yaml files in ~/.kube
+export KUBECONFIG=$(echo $(find ~/.kube -type f -name config.\*.yaml) | sed 's/[[:space:]]/:/g')
