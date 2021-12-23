@@ -117,7 +117,6 @@ source $ZSH/oh-my-zsh.sh
 source <(kubectl completion zsh)
 complete -F __start_kubectl kc
 
-
 # Set default editor to vim
 export VISUAL=vim
 export EDITOR="$VISUAL"
@@ -143,8 +142,9 @@ alias kgi="kubectl get ingress"
 alias kgir="kubectl get ingressroute"
 alias kcx="kubectx"
 alias kns="kubens"
+alias klog="kubectl logs"
 alias tf="terraform"
 alias ip="ip -c -br"
 
 # Use all config.*yaml files in ~/.kube
-export KUBECONFIG=$(echo $(find ~/.kube -type f -name config.\*.yaml) | sed 's/[[:space:]]/:/g')
+export KUBECONFIG=$(echo $(find ~/.kube -type f -name "config*.yaml") | sed 's/[[:space:]]/:/g')
