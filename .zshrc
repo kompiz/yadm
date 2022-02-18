@@ -80,7 +80,14 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git lxd-completion-zsh terraform)
+# Test if machine has lxd-completion-zsh plugin, and if not, set an empty var
+if [ -d ~/.oh-my-zsh/plugins/lxd-completion-zsh ]; then
+  export LXD_COMPL_ZSH=lxd-completion-zsh
+else
+  export LXD_COMPL_ZSH=''
+fi
+
+plugins=($LXD_COMPL_ZSH git terraform)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -134,12 +141,18 @@ alias kg="kubectl get"
 alias kd="kubectl describe"
 alias kw="kubectl --watch"
 alias ke="kubectl edit"
+alias kep="kubectl edit pod"
+alias kes="kubectl edit svc"
+alias ked="kubectl edit deployment"
 alias ka="kubectl apply"
 alias kdel="kubectl delete"
 alias kgp="kubectl get pods -o wide"
+alias kgs="kubectl get svc -o wide"
+alias kgsec="kubectl get secrets"
 alias kdp="kubectl describe pod"
 alias kgi="kubectl get ingress"
 alias kgir="kubectl get ingressroute"
+alias keir="kubectl edit ingressroute"
 alias kcx="kubectx"
 alias kns="kubens"
 alias klog="kubectl logs"
