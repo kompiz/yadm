@@ -156,6 +156,9 @@ alias keir="kubectl edit ingressroute"
 alias kcx="kubectx"
 alias kns="kubens"
 alias klog="kubectl logs"
+
+alias ccl="calicoctl"
+
 alias tf="terraform"
 alias ip="ip -c -br"
 
