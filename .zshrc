@@ -146,6 +146,8 @@ alias kes="kubectl edit svc"
 alias ked="kubectl edit deployment"
 alias ka="kubectl apply"
 alias kdel="kubectl delete"
+alias kdelsel="kubectl delete pods --selector"
+alias kdelcomp="kubectl delete pod --field-selector=status.phase==Succeeded"
 alias kgp="kubectl get pods -o wide"
 alias kgs="kubectl get svc -o wide"
 alias kgsec="kubectl get secrets"
@@ -156,11 +158,19 @@ alias keir="kubectl edit ingressroute"
 alias kcx="kubectx"
 alias kns="kubens"
 alias klog="kubectl logs"
+alias ksh="kubectl exec --stdin --tty"
+alias kwa="watch kubectl get pods -A"
 
 alias ccl="calicoctl"
 
 alias tf="terraform"
-alias ip="ip -c -br"
+
+# If on mac, set these aliases, otherwise assume Linux
+if [ -d /Users ]; then
+  alias ip="ip"
+else
+  alias ip="ip -c -br"
+fi
 
 # Use all config.*yaml files in ~/.kube
 export KUBECONFIG=$(echo $(find ~/.kube -type f -name "config*.yaml") | sed 's/[[:space:]]/:/g')
