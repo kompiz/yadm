@@ -98,6 +98,16 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
+export LANG="en_US.UTF-8"
+export LC_COLLATE="sv_SE.UTF-8"
+export LC_CTYPE="sv_SE.UTF-8"
+export LC_MESSAGES="sv_SE.UTF-8"
+export LC_MONETARY="sv_SE.UTF-8"
+export LC_NUMERIC="sv_SE.UTF-8"
+export LC_TIME="sv_SE.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
+
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -138,6 +148,7 @@ alias watch='watch '
 # Aliases
 alias kc="kubectl"
 alias kg="kubectl get"
+alias kgeverything="kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found"
 alias kd="kubectl describe"
 alias kw="kubectl --watch"
 alias ke="kubectl edit"
@@ -160,7 +171,6 @@ alias kns="kubens"
 alias klog="kubectl logs"
 alias ksh="kubectl exec --stdin --tty"
 alias kwa="watch kubectl get pods -A"
-
 alias ccl="calicoctl"
 
 alias tf="terraform"
