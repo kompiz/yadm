@@ -10,14 +10,19 @@ set t_Co=256
 " Need to figure out proper escape sequence and add to iterm2 in order to work
 
 " Make ctrl+e and ctrl+a work
-map <C-E> $
-map <C-A> 0|
+" map <C-E> $
+" map <C-A> 0|
 
 " Make f w also work with ctrl+left arrow and ctrl+right arrow
 map f w
 
+" Activate syntax highlighting
 syn on
 set background=dark
 
+" Make option up and down jump five lines
 noremap <C-Up> 5k
 noremap <C-Down> 5j
+
+" Show line numbers
+set number
