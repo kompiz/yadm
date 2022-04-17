@@ -184,3 +184,6 @@ fi
 
 # Use all config.*yaml files in ~/.kube
 export KUBECONFIG=$(echo $(find ~/.kube -type f -name "config*.yaml") | sed 's/[[:space:]]/:/g')
+
+# Autocomplete
+autoload -U compinit && compinit
