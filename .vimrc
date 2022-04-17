@@ -25,4 +25,4 @@ noremap <C-Up> 5k
 noremap <C-Down> 5j
 
 " Show line numbers
-set number
+" set number
