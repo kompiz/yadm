@@ -81,7 +81,7 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 
 # Test if machine has lxd-completion-zsh plugin, and if not, set an empty var
-if [ -d ~/.oh-my-zsh/plugins/lxd-completion-zsh ]; then
+if [ -d ~/.oh-my-zsh/custom/plugins/lxd-completion-zsh ]; then
   export LXD_COMPL_ZSH=lxd-completion-zsh
 else
   export LXD_COMPL_ZSH=''
