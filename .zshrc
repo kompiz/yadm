@@ -134,6 +134,9 @@ export LC_ALL="en_US.UTF-8"
 source <(kubectl completion zsh)
 complete -F __start_kubectl kc
 
+# Stern autocompletion
+source <(stern --completion=zsh)
+
 # Set default editor to vim
 export VISUAL=vim
 export EDITOR="$VISUAL"
@@ -165,19 +168,23 @@ alias kgsec="kubectl get secrets"
 alias kdp="kubectl describe pod"
 alias kgi="kubectl get ingress"
 alias kgir="kubectl get ingressroute"
+alias kgya="kubectl -oyaml get"
 alias keir="kubectl edit ingressroute"
 alias kcx="kubectx"
 alias kns="kubens"
 alias klog="kubectl logs"
 alias ksh="kubectl exec --stdin --tty"
-alias kwa="watch kubectl get pods -A"
+alias wka="watch kubectl get pods"
+alias wkaa="watch kubectl get pods -A"
 alias ccl="calicoctl"
-
 alias tf="terraform"
+alias vpn-up="~/vpn-up.sh"
+alias ad="argocd"
 
-# If on mac, set these aliases, otherwise assume Linux
+# If on mac, do some things, otherwise assume Linux
 if [ -d /Users ]; then
   alias ip="ip"
+  export LANGUAGE=en:en_US:en
 else
   alias ip="ip -c -br"
 fi
