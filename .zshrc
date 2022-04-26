@@ -107,7 +107,6 @@ export LC_NUMERIC="sv_SE.UTF-8"
 export LC_TIME="sv_SE.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
-
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -134,16 +133,15 @@ export LC_ALL="en_US.UTF-8"
 source <(kubectl completion zsh)
 complete -F __start_kubectl kc
 
-# Stern autocompletion
-source <(stern --completion=zsh)
+# Argocd autocompletion
+source <(argocd completion zsh)
+
+# Make autocomplete work properly
+autoload -U compinit && compinit
 
 # Set default editor to vim
 export VISUAL=vim
 export EDITOR="$VISUAL"
-
-# Set locale to UTF8
-export LC_ALL=sv_SE.UTF-8
-export LC_CTYPE=sv_SE.UTF-8
 
 # Hack to make watch accept aliases
 alias watch='watch '
@@ -174,12 +172,13 @@ alias kcx="kubectx"
 alias kns="kubens"
 alias klog="kubectl logs"
 alias ksh="kubectl exec --stdin --tty"
-alias wka="watch kubectl get pods"
-alias wkaa="watch kubectl get pods -A"
+alias wkga="watch kubectl get pods"
+alias wkgaa="watch kubectl get pods -A"
 alias ccl="calicoctl"
 alias tf="terraform"
 alias vpn-up="~/vpn-up.sh"
-alias ad="argocd"
+alias argologin="kubens argocd && argocd login argocd.k8s.dockyards.io --core"
+alias ks="kubeseal"
 
 # If on mac, do some things, otherwise assume Linux
 if [ -d /Users ]; then
@@ -192,5 +191,3 @@ fi
 # Use all config.*yaml files in ~/.kube
 export KUBECONFIG=$(echo $(find ~/.kube -type f -name "config*.yaml") | sed 's/[[:space:]]/:/g')
 
-# Autocomplete
-autoload -U compinit && compinit
