@@ -176,7 +176,6 @@ alias wkga="watch kubectl get pods"
 alias wkgaa="watch kubectl get pods -A"
 alias ccl="calicoctl"
 alias tf="terraform"
-alias vpn-up="~/vpn-up.sh"
 alias argologin="kubens argocd && argocd login argocd.k8s.dockyards.io --core"
 alias ks="kubeseal"
 
