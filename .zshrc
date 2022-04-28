@@ -89,6 +89,9 @@ fi
 
 plugins=($LXD_COMPL_ZSH git terraform)
 
+# Path for zsh-completions, needs to be before 'source $ZSH/oh-my-zsh.sh' line
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -134,7 +137,7 @@ source <(kubectl completion zsh)
 complete -F __start_kubectl kc
 
 # Argocd autocompletion
-source <(argocd completion zsh)
+#source <(argocd completion zsh)
 
 # Make autocomplete work properly
 autoload -U compinit && compinit
@@ -176,7 +179,7 @@ alias wkga="watch kubectl get pods"
 alias wkgaa="watch kubectl get pods -A"
 alias ccl="calicoctl"
 alias tf="terraform"
-alias argologin="kubens argocd && argocd login argocd.k8s.dockyards.io --core"
+#alias argologin="kubens argocd && argocd login argocd.k8s.dockyards.io --core"
 alias ks="kubeseal"
 
 # If on mac, do some things, otherwise assume Linux
