@@ -165,7 +165,6 @@ alias kdelsel="kubectl delete pods --selector"
 alias kdelcomp="kubectl delete pod --field-selector=status.phase==Succeeded"
 alias kgp="kubectl get pods -o wide"
 alias kgs="kubectl get svc -o wide"
-alias kgsec="kubectl get secrets"
 alias kdp="kubectl describe pod"
 alias kgi="kubectl get ingress"
 alias kgir="kubectl get ingressroute"
@@ -177,10 +176,17 @@ alias klog="kubectl logs"
 alias ksh="kubectl exec --stdin --tty"
 alias wkga="watch kubectl get pods"
 alias wkgaa="watch kubectl get pods -A"
+
+alias ks="kubeseal"
 alias ccl="calicoctl"
 alias tf="terraform"
 #alias argologin="kubens argocd && argocd login argocd.k8s.dockyards.io --core"
-alias ks="kubeseal"
+
+# Function for showing certificates in secrets
+kgsec() { kubectl get secret "$1" -ojson | jq '.data | map_values(@base64d)' | sed 's/\\n/\n/g'; }
+
+# Function for showing certificate issuer, subject, and relevant dates
+certget() { openssl storeutl -noout -text -certs "$1" | /usr/bin/grep --color=auto -w "Issuer" -A4; }
 
 # If on mac, do some things, otherwise assume Linux
 if [ -d /Users ]; then
