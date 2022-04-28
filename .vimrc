@@ -4,6 +4,8 @@ nnoremap <S-Enter> moO<Esc>`o
 " Make vim use 256 colors
 set t_Co=256
 
+" Show line numbers at bottom right
+set ruler
 
 " Make shift+spacebar insert blankspace
 " nnoremap <S-Space> i<Space><Esc>
