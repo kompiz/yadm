@@ -45,12 +45,7 @@
                             {
                                 "from": {
                                     "key_code": "f",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_command",
-                                            "left_control"
-                                        ]
-                                    }
+                                    "modifiers": ["left_command", "left_control"]
                                 },
                                 "to": [
                                     {
@@ -58,6 +53,8 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "fn"
+                                        ]
+                                    }
                                     }
                                 ],
                                 "type": "basic"

@@ -182,8 +182,8 @@ alias ccl="calicoctl"
 alias tf="terraform"
 #alias argologin="kubens argocd && argocd login argocd.k8s.dockyards.io --core"
 
-# Function for showing certificates in secrets
-kgsec() { kubectl get secret "$1" -ojson | jq '.data | map_values(@base64d)' | sed 's/\\n/\n/g'; }
+# Function for showing base64 encoded secrets
+kgsec() { kubectl get secret "$1" -ojson | jq -r '.data | map_values(@base64d) | .[]'; }
 
 # Function for showing certificate issuer, subject, and relevant dates
 certget() { openssl storeutl -noout -text -certs "$1" | /usr/bin/grep --color=auto -w "Issuer" -A4; }
