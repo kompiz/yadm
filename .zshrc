@@ -186,7 +186,9 @@ alias tf="terraform"
 kgsec() { kubectl get secret "$1" -ojson | jq -r '.data | map_values(@base64d) | .[]'; }
 
 # Function for showing certificate issuer, subject, and relevant dates
-certget() { openssl storeutl -noout -text -certs "$1" | /usr/bin/grep --color=auto -w "Issuer" -A4; }
+certchk() { 
+        openssl storeutl -noout -text -certs "$1" | grep 'Issuer:\|Validity\|Not Before\|Not After\|Subject:\|Alternative\|DNS:'
+}
 
 # If on mac, do some things, otherwise assume Linux
 if [ -d /Users ]; then
