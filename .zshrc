@@ -87,7 +87,15 @@ else
   export LXD_COMPL_ZSH=''
 fi
 
-plugins=($LXD_COMPL_ZSH git terraform)
+# Test if machine has kubetail plugin, and if not, set an empty var
+if [ -d ~/.oh-my-zsh/custom/plugins/kubetail ]; then
+  export KUBETAIL_ZSH=kubetail
+else
+  export KUBETAIL_ZSH=''
+fi
+
+
+plugins=($KUBETAIL_ZSH $LXD_COMPL_ZSH git terraform)
 
 # Path for zsh-completions, needs to be before 'source $ZSH/oh-my-zsh.sh' line
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
@@ -177,6 +185,7 @@ alias ksh="kubectl exec --stdin --tty"
 alias wkga="watch kubectl get pods"
 alias wkgaa="watch kubectl get pods -A"
 
+alias kt="kubetail"
 alias ks="kubeseal"
 alias ccl="calicoctl"
 alias tf="terraform"
