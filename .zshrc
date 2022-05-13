@@ -145,7 +145,7 @@ source <(kubectl completion zsh)
 complete -F __start_kubectl kc
 
 # Argocd autocompletion
-#source <(argocd completion zsh)
+source <(argocd completion zsh)
 
 # Make autocomplete work properly
 autoload -U compinit && compinit
@@ -191,12 +191,19 @@ alias ccl="calicoctl"
 alias tf="terraform"
 #alias argologin="kubens argocd && argocd login argocd.k8s.dockyards.io --core"
 
+alias acd="argocd"
+
 # Function for showing base64 encoded secrets
 kgsec() { kubectl get secret "$1" -ojson | jq -r '.data | map_values(@base64d) | .[]'; }
 
-# Function for showing certificate issuer, subject, and relevant dates
+# Function for showing certificate issuer, subject, and relevant dates - sadly only works on Linux 
 certchk() { 
         openssl storeutl -noout -text -certs "$1" | grep 'Issuer:\|Validity\|Not Before\|Not After\|Subject:\|Alternative\|DNS:'
+}
+
+# Function for doing a recursive replace on mac as I can't seem to get along with BSD sed - use with care, prob super dangerous =)
+recurs-replace() {
+        grep -e "$1" -rl . | xargs sed -i '' "s/$1/$2/g"
 }
 
 # If on mac, do some things, otherwise assume Linux

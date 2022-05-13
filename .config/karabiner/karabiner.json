@@ -40,7 +40,7 @@
                         ]
                     },
                     {
-                        "description": "Command + control to fn + f",
+                        "description": "Command + control f to fn + f",
                         "manipulators": [
                             {
                                 "from": {
