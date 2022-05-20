@@ -8,15 +8,11 @@ set t_Co=256
 set ruler
 
 " Make shift+spacebar insert blankspace
-" nnoremap <S-Space> i<Space><Esc>
+nnoremap <S-Space> i<Space><Esc>
 " Need to figure out proper escape sequence and add to iterm2 in order to work
 
-" Make ctrl+e and ctrl+a work
-" map <C-E> $
-" map <C-A> 0|
-
 " Make f w also work with ctrl+left arrow and ctrl+right arrow
-map f w
+ map f w
 
 " Activate syntax highlighting
 syn on
@@ -26,5 +22,14 @@ set background=dark
 noremap <C-Up> 5k
 noremap <C-Down> 5j
 
-" Show line numbers
-" set number
+" Make fancy intendations
+let g:indentLine_char = '⦙'
+let g:indentLine_color_term = 239
+let g:indentLine_bgcolor_term = 202
+let g:indentLine_bgcolor_gui = '#FF5F00'
+
+
+" vim-plug plugin manager
+call plug#begin()
+Plug 'Yggdroot/indentLine'
+call plug#end()
