@@ -95,7 +95,7 @@ else
 fi
 
 
-plugins=($KUBETAIL_ZSH $LXD_COMPL_ZSH git terraform)
+plugins=($KUBETAIL_ZSH $LXD_COMPL_ZSH zsh-autosuggestions git terraform)
 
 # Path for zsh-completions, needs to be before 'source $ZSH/oh-my-zsh.sh' line
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
@@ -145,7 +145,7 @@ source <(kubectl completion zsh)
 complete -F __start_kubectl kc
 
 # Argocd autocompletion
-source <(argocd completion zsh)
+#source <(argocd completion zsh)
 
 # Make autocomplete work properly
 autoload -U compinit && compinit
@@ -191,14 +191,18 @@ alias ccl="calicoctl"
 alias tf="terraform"
 #alias argologin="kubens argocd && argocd login argocd.k8s.dockyards.io --core"
 
-alias acd="argocd"
+#alias acd="argocd"
 
 # Function for showing base64 encoded secrets
 kgsec() { kubectl get secret "$1" -ojson | jq -r '.data | map_values(@base64d) | .[]'; }
 
 # Function for showing certificate issuer, subject, and relevant dates - sadly only works on Linux 
 certchk() { 
+    if [[ $1 ]]; then
         openssl storeutl -noout -text -certs "$1" | grep 'Issuer:\|Validity\|Not Before\|Not After\|Subject:\|Alternative\|DNS:'
+    else
+        xargs openssl storeutl -noout -text -certs | grep 'Issuer:\|Validity\|Not Before\|Not After\|Subject:\|Alternative\|DNS:'
+    fi
 }
 
 # Function for doing a recursive replace on mac as I can't seem to get along with BSD sed - use with care, prob super dangerous =)
@@ -216,4 +220,13 @@ fi
 
 # Use all config.*yaml files in ~/.kube
 export KUBECONFIG=$(echo $(find ~/.kube -type f -name "config*.yaml") | sed 's/[[:space:]]/:/g')
+
+# Function for testing piping
+pipetest() { 
+    if [[ $1 ]]; then
+        echo "This is $1"
+    else
+        xargs echo "This is from stdin"
+    fi
+}
 
