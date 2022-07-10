@@ -22,14 +22,3 @@ set background=dark
 noremap <C-Up> 5k
 noremap <C-Down> 5j
 
-" Make fancy intendations
-let g:indentLine_char = '⦙'
-let g:indentLine_color_term = 239
-let g:indentLine_bgcolor_term = 202
-let g:indentLine_bgcolor_gui = '#FF5F00'
-
-
-" vim-plug plugin manager
-call plug#begin()
-Plug 'Yggdroot/indentLine'
-call plug#end()
