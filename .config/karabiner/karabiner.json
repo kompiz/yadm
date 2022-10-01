@@ -1,7 +1,7 @@
 {
     "global": {
         "check_for_updates_on_startup": true,
-        "show_in_menu_bar": true,
+        "show_in_menu_bar": false,
         "show_profile_name_in_menu_bar": false
     },
     "profiles": [
@@ -45,16 +45,19 @@
                             {
                                 "from": {
                                     "key_code": "f",
-                                    "modifiers": ["left_command", "left_control"]
+                                    "modifiers": [
+                                        "left_command",
+                                        "left_control"
+                                    ]
                                 },
                                 "to": [
                                     {
-                                    "key_code": "f",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "fn"
-                                        ]
-                                    }
+                                        "key_code": "f",
+                                        "modifiers": {
+                                            "mandatory": [
+                                                "fn"
+                                            ]
+                                        }
                                     }
                                 ],
                                 "type": "basic"
