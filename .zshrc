@@ -158,6 +158,9 @@ export EDITOR="$VISUAL"
 alias watch='watch '
 
 # Aliases
+
+alias ghlogin='eval $(ssh-agent); ssh-add ~/.ssh/id_rsa-*-github'
+
 alias kc="kubectl"
 alias kg="kubectl get"
 alias kgeverything="kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found"
@@ -189,8 +192,8 @@ alias kt="kubetail"
 alias ks="kubeseal"
 alias ccl="calicoctl"
 alias tf="terraform"
-#alias argologin="kubens argocd && argocd login argocd.k8s.dockyards.io --core"
 
+#alias argologin="kubens argocd && argocd login argocd.k8s.dockyards.io --core"
 #alias acd="argocd"
 
 # Function for showing base64 encoded secrets
