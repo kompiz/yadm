@@ -159,6 +159,9 @@ alias watch='watch '
 
 # Aliases
 
+alias ed-zshrc="vim ~/.zshrc"
+alias re-zshrc="source ~/.zshrc"
+
 alias ghlogin='eval $(ssh-agent); ssh-add ~/.ssh/id_rsa-*-github'
 
 alias kc="kubectl"
@@ -171,7 +174,9 @@ alias kep="kubectl edit pod"
 alias kes="kubectl edit svc"
 alias ked="kubectl edit deployment"
 alias ka="kubectl apply"
+alias kaf="kubectl apply -f"
 alias kdel="kubectl delete"
+alias kdelf="kubectl delete -f"
 alias kdelsel="kubectl delete pods --selector"
 alias kdelcomp="kubectl delete pod --field-selector=status.phase==Succeeded"
 alias kgp="kubectl get pods -o wide"
