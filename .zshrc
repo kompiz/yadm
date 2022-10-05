@@ -163,6 +163,7 @@ alias ed-zshrc="vim ~/.zshrc"
 alias re-zshrc="source ~/.zshrc"
 
 alias ghlogin='eval $(ssh-agent); ssh-add ~/.ssh/id_rsa-*-github'
+alias bblogin='eval $(ssh-agent); ssh-add ~/.ssh/id_rsa-*-bitbucket'
 
 alias kc="kubectl"
 alias kg="kubectl get"
