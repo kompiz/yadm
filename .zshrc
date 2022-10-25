@@ -162,8 +162,9 @@ alias watch='watch '
 alias ed-zshrc="vim ~/.zshrc"
 alias re-zshrc="source ~/.zshrc"
 
-alias ghlogin='eval $(ssh-agent); ssh-add ~/.ssh/id_rsa-*-github'
-alias bblogin='eval $(ssh-agent); ssh-add ~/.ssh/id_rsa-*-bitbucket'
+alias gh-login='eval $(ssh-agent); ssh-add ~/.ssh/id_rsa-*-github'
+alias bb-login='eval $(ssh-agent); ssh-add ~/.ssh/id_rsa-*-bitbucket'
+alias infra-login='eval $(ssh-agent); ssh-add ~/.ssh/id_rsa-*-infra'
 
 alias kc="kubectl"
 alias kg="kubectl get"
