@@ -144,6 +144,9 @@ export LC_ALL="en_US.UTF-8"
 source <(kubectl completion zsh)
 complete -F __start_kubectl kc
 
+# Helm autocompletion
+source <(helm completion zsh)
+
 # Argocd autocompletion
 #source <(argocd completion zsh)
 
@@ -181,6 +184,7 @@ alias kdel="kubectl delete"
 alias kdelf="kubectl delete -f"
 alias kdelsel="kubectl delete pods --selector"
 alias kdelcomp="kubectl delete pod --field-selector=status.phase==Succeeded"
+alias kdelfailed="kubectl delete pod --field-selector=status.phase==Failed"
 alias kgp="kubectl get pods -o wide"
 alias kgs="kubectl get svc -o wide"
 alias kdp="kubectl describe pod"
@@ -240,3 +244,4 @@ pipetest() {
     fi
 }
 
+source ~/.ssr-api-token.sh
