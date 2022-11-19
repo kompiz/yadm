@@ -148,7 +148,13 @@ complete -F __start_kubectl kc
 source <(helm completion zsh)
 
 # Argocd autocompletion
-#source <(argocd completion zsh)
+compdef _argocd argocd
+source <(argocd completion zsh)
+
+# Stern autocompletion 
+# Haven't gotten this to work yet
+#compdef _stern stern
+#source <(stern --completion=zsh)
 
 # Make autocomplete work properly
 autoload -U compinit && compinit
@@ -205,8 +211,11 @@ alias ks="kubeseal"
 alias ccl="calicoctl"
 alias tf="terraform"
 
-#alias argologin="kubens argocd && argocd login argocd.k8s.dockyards.io --core"
-#alias acd="argocd"
+alias ac="argocd"
+alias acalist="argocd app list"
+alias acaget="argocd app get"
+alias acadel="argocd app delete"
+alias acasync="argocd app sync"
 
 # Function for showing base64 encoded secrets
 kgsec() { kubectl get secret "$1" -ojson | jq -r '.data | map_values(@base64d) | .[]'; }
