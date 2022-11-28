@@ -211,11 +211,14 @@ alias ks="kubeseal"
 alias ccl="calicoctl"
 alias tf="terraform"
 
-alias ac="argocd"
-alias acalist="argocd app list"
-alias acaget="argocd app get"
-alias acadel="argocd app delete"
-alias acasync="argocd app sync"
+alias acd="argocd"
+alias acdlist="argocd app list"
+alias acdget="argocd app get"
+alias acddel="argocd app delete"
+alias acdsync="argocd app sync"
+alias acdsync-all-apps="argocd app sync -l app.kubernetes.io/instance=apps"
+
+alias kshell='kubectl run -it --image wbitt/network-multitool --restart Never --rm shell -- /bin/bash'
 
 # Function for showing base64 encoded secrets
 kgsec() { kubectl get secret "$1" -ojson | jq -r '.data | map_values(@base64d) | .[]'; }
