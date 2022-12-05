@@ -257,4 +257,4 @@ pipetest() {
     fi
 }
 
-source ~/.ssr-api-token.sh
+#source ~/.ssr-api-token.sh
