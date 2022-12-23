@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$HOME/go/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/go/bin:$HOME/.local/bin:$PATH
 
 
 # Path to your oh-my-zsh installation.
@@ -95,7 +95,7 @@ else
 fi
 
 
-plugins=($KUBETAIL_ZSH $LXD_COMPL_ZSH zsh-autosuggestions git terraform)
+plugins=($KUBETAIL_ZSH $LXD_COMPL_ZSH git terraform)
 
 # Path for zsh-completions, needs to be before 'source $ZSH/oh-my-zsh.sh' line
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
@@ -217,8 +217,17 @@ alias acdget="argocd app get"
 alias acddel="argocd app delete"
 alias acdsync="argocd app sync"
 alias acdsync-all-apps="argocd app sync -l app.kubernetes.io/instance=apps"
+alias appset="argocd appset"
 
 alias kshell='kubectl run -it --image wbitt/network-multitool --restart Never --rm shell -- /bin/bash'
+
+
+# Add virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+#source /usr/local/bin/virtualenvwrapper.sh
+source virtualenvwrapper.sh
 
 # Function for showing base64 encoded secrets
 kgsec() { kubectl get secret "$1" -ojson | jq -r '.data | map_values(@base64d) | .[]'; }
