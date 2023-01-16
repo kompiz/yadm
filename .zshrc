@@ -95,7 +95,7 @@ else
 fi
 
 
-plugins=($KUBETAIL_ZSH $LXD_COMPL_ZSH git terraform)
+plugins=($KUBETAIL_ZSH $LXD_COMPL_ZSH git zsh-autosuggestions)
 
 # Path for zsh-completions, needs to be before 'source $ZSH/oh-my-zsh.sh' line
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
