@@ -175,6 +175,12 @@ alias gh-login='eval $(ssh-agent); ssh-add ~/.ssh/id_rsa-*-github'
 alias bb-login='eval $(ssh-agent); ssh-add ~/.ssh/id_rsa-*-bitbucket'
 alias infra-login='eval $(ssh-agent); ssh-add ~/.ssh/id_rsa-*-infra'
 
+alias tf="terraform"
+
+
+
+# Kubectl aliases
+
 alias kc="kubectl"
 alias kg="kubectl get"
 alias kgeverything="kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found -oname"
@@ -211,8 +217,22 @@ alias wkgaa="watch kubectl get pods -A"
 
 alias kt="kubetail"
 alias ks="kubeseal"
-alias ccl="calicoctl"
-alias tf="terraform"
+
+alias kshell='kubectl run -it --image wbitt/network-multitool --restart Never --rm shell -- /bin/bash'
+
+
+
+# Calicoctl aliases
+
+alias cal="calicoctl" 
+alias caa="calicoctl apply"
+alias caf="calicoctl apply -f"
+alias caadel"calicoctl delete"
+alias cafdel"calicoctl delete -f"
+
+
+
+# Argocd aliases
 
 alias acd="argocd"
 alias acdlist="argocd app list"
@@ -222,7 +242,6 @@ alias acdsync="argocd app sync"
 alias acdsync-all-apps="argocd app sync -l app.kubernetes.io/instance=apps"
 alias appset="argocd appset"
 
-alias kshell='kubectl run -it --image wbitt/network-multitool --restart Never --rm shell -- /bin/bash'
 
 
 # Add virtualenvwrapper
