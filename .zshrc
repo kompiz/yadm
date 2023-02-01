@@ -195,10 +195,14 @@ alias kaf="kubectl apply -f"
 alias kdel="kubectl delete"
 alias kdelf="kubectl delete -f"
 alias kdelir="kubectl delete ingressroute"
-alias kdelsel="kubectl delete pods --selector"
+
 alias kdelcomp="kubectl delete pod --field-selector=status.phase==Succeeded"
 alias kdelfailed="kubectl delete pod --field-selector=status.phase==Failed"
-alias kpfinalizer="kubectl patch --type json --patch='[ { "op": "remove", "path": "/metadata/finalizers" } ]'"
+
+alias kdelsel="kubectl delete pods --selector"
+
+alias kdelnp="kubectl delete networkpolicy"
+alias kgnpa="kubectl get networkpolicy -A"
 alias kgp="kubectl get pods -o wide"
 alias kgs="kubectl get svc -o wide"
 alias kdp="kubectl describe pod"
@@ -224,11 +228,11 @@ alias kshell='kubectl run -it --image wbitt/network-multitool --restart Never --
 
 # Calicoctl aliases
 
-alias cal="calicoctl" 
-alias caa="calicoctl apply"
-alias caf="calicoctl apply -f"
-alias caadel"calicoctl delete"
-alias cafdel"calicoctl delete -f"
+alias ccl="calicoctl" 
+alias cca="calicoctl apply"
+alias ccaf="calicoctl apply -f"
+alias ccdel="calicoctl delete"
+alias ccdelf="calicoctl delete -f"
 
 
 
