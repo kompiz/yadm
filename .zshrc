@@ -243,6 +243,8 @@ alias acdsync-all-apps="argocd app sync -l app.kubernetes.io/instance=apps"
 alias appset="argocd appset"
 
 
+alias foo='echo bar'
+
 
 # Add virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
