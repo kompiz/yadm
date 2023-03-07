@@ -252,12 +252,12 @@ alias appset="argocd appset"
 alias foo='echo bar'
 
 
-# Add virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-#source /usr/local/bin/virtualenvwrapper.sh
-source virtualenvwrapper.sh
+## Add virtualenvwrapper
+#export WORKON_HOME=$HOME/.virtualenvs
+#export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+#export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+##source /usr/local/bin/virtualenvwrapper.sh
+#source virtualenvwrapper.sh
 
 # Function for showing base64 encoded secrets
 kgsec() { kubectl get secret "$1" -ojson | jq -r '.data | map_values(@base64d) | .[]'; }
