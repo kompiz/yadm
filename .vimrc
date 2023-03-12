@@ -22,3 +22,7 @@ set background=dark
 noremap <C-Up> 5k
 noremap <C-Down> 5j
 
+" Make yaml QOL things
+set expandtab
+set tabstop=2
+set shiftwidth=2
