@@ -26,3 +26,8 @@ noremap <C-Down> 5j
 set expandtab
 set tabstop=2
 set shiftwidth=2
+
+" Make indentLine show whitespace
+let g:indentLine_setConceal = 1
+let g:indentLine_leadingSpaceChar='·'
+let g:indentLine_leadingSpaceEnabled='1'
