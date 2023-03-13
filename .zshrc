@@ -147,6 +147,9 @@ complete -F __start_kubectl kc
 # Helm autocompletion
 source <(helm completion zsh)
 
+# Rclone autocompletion
+source <(rclone completion zsh)
+
 # Argocd autocompletion
 compdef _argocd argocd
 source <(argocd completion zsh)
@@ -166,7 +169,7 @@ export EDITOR="$VISUAL"
 # Hack to make watch accept aliases
 alias watch='watch '
 
-# Aliases
+# Misc aliases
 
 alias ed-zshrc="vim ~/.zshrc"
 alias re-zshrc="source ~/.zshrc"
@@ -176,7 +179,7 @@ alias bb-login='eval $(ssh-agent); ssh-add ~/.ssh/id_rsa-*-bitbucket'
 alias infra-login='eval $(ssh-agent); ssh-add ~/.ssh/id_rsa-*-infra'
 
 alias tf="terraform"
-
+alias nc-help="echo 'Listener: nc -l -u -v -p <port>   Sender: nc -v -u <address> <port>'"
 
 
 # Kubectl aliases
@@ -224,7 +227,7 @@ alias wkgaa="watch kubectl get pods -A"
 alias kt="kubetail"
 alias ks="kubeseal"
 
-alias kshell='kubectl run -it --image wbitt/network-multitool --restart Never --rm shell -- /bin/bash'
+alias kshell='kubectl run -it --image wbitt/network-multitool --restart Never --rm=false shell -- /bin/bash'
 
 
 
@@ -247,6 +250,9 @@ alias acddel="argocd app delete"
 alias acdsync="argocd app sync"
 alias acdsync-all-apps="argocd app sync -l app.kubernetes.io/instance=apps"
 alias appset="argocd appset"
+
+
+
 
 
 alias foo='echo bar'
