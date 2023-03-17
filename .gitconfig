@@ -1,0 +1,6 @@
+[user]
+	email = cwlr@sudosweden.com
+	name = Carl Wilhelm Linder Rosén
+[pull]
+	prune = true
+	rebase = true
