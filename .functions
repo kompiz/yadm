@@ -1,5 +1,5 @@
 # Show base64 encoded secrets
-kgsec() { kubectl get secret "$1" -ojson | jq -r '.data | map_values(@base64d) | .[]'; }
+kgsec() { kubectl get secret "$1" -ojson | jq -r '.data | to_entries[] | "\(.key):\(.value | @base64d)"'; }
 
 
 
