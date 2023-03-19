@@ -1,0 +1,21 @@
+# Kubectl autocompletion
+source <(kubectl completion zsh)
+complete -F __start_kubectl kc
+
+# Helm autocompletion
+source <(helm completion zsh)
+
+# Rclone autocompletion
+#source <(rclone completion zsh)
+
+# Argocd autocompletion
+compdef _argocd argocd
+source <(argocd completion zsh)
+
+# Stern autocompletion 
+# Haven't gotten this to work yet
+#compdef _stern stern
+#source <(stern --completion=zsh)
+
+# Make autocomplete work properly
+autoload -U compinit && compinit
