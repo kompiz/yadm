@@ -64,3 +64,7 @@ source ~/.autocompletions
 
 # Add functions
 source ~/.functions
+
+
+
+

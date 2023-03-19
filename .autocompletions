@@ -1,21 +1,34 @@
-# Kubectl autocompletion
+# Activate autocomplete for zsh
+autoload -U compinit && compinit
+
+# Kubectl autocomplete
 source <(kubectl completion zsh)
 complete -F __start_kubectl kc
 
-# Helm autocompletion
+# Helm autocomplete
 source <(helm completion zsh)
 
-# Rclone autocompletion
+# Rclone autocomplete
 #source <(rclone completion zsh)
 
-# Argocd autocompletion
+# Argocd autocomplete
 compdef _argocd argocd
 source <(argocd completion zsh)
 
-# Stern autocompletion 
+# Stern autocomplete 
 # Haven't gotten this to work yet
 #compdef _stern stern
 #source <(stern --completion=zsh)
 
-# Make autocomplete work properly
-autoload -U compinit && compinit
+# Kgsec autocomplete function
+_kgsec() {
+  # Get list of secret names using kubectl
+  local secrets=$(kubectl get secrets -o jsonpath='{range .items[*]}{.metadata.name}{"\n"}{end}')
+
+  # Parse secret names and set completions
+  local completions=("${(@f)secrets}")
+  _arguments '*:secret name:_values -s "," "${completions[@]}"'
+}
+
+# Register completion function for kgsec
+compdef _kgsec kgsec
