@@ -78,5 +78,6 @@ alias bb-login='eval $(ssh-agent); ssh-add ~/.ssh/id_rsa-*-bitbucket'
 alias infra-login='eval $(ssh-agent); ssh-add ~/.ssh/id_rsa-*-infra'
 
 alias tf="terraform"
+alias tg="terragrunt"
 
 alias nc-help="echo 'Listener: nc -l -u -v -p <port>   Sender: nc -v -u <address> <port>'"
