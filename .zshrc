@@ -67,3 +67,6 @@ source ~/.autocompletions
 
 # Add functions
 source ~/.functions
+
+# Add misc
+source ~/.misc
