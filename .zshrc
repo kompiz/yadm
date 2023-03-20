@@ -56,6 +56,9 @@ export LC_ALL="en_US.UTF-8"
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
+# Use all config.*yaml files in ~/.kube
+export KUBECONFIG=$(echo $(find ~/.kube -type f -name "config*.yaml") | sed 's/[[:space:]]/:/g')
+
 # Add aliases
 source ~/.aliases
 
@@ -64,7 +67,3 @@ source ~/.autocompletions
 
 # Add functions
 source ~/.functions
-
-
-
-
