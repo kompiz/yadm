@@ -68,5 +68,9 @@ source ~/.autocompletions
 # Add functions
 source ~/.functions
 
-# Add misc
-source ~/.misc
+# Add misc file if it exists
+if [ -f ~/.misc ]; then
+  source ~/.misc
+else
+  # Do nothing if the file doesn't exist
+fi

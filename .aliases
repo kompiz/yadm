@@ -41,6 +41,7 @@ alias ked="kubectl edit deployment"
 alias keir="kubectl edit ingressroute"
 alias kep="kubectl edit pod"
 alias kes="kubectl edit svc"
+alias kg="kubectl get"
 alias kgeverything="kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found -oname"
 alias kgnp="kubectl get networkpolicy"
 alias kgnpa="kubectl get networkpolicy -A"
@@ -78,6 +79,4 @@ alias bb-login='eval $(ssh-agent); ssh-add ~/.ssh/id_rsa-*-bitbucket'
 alias infra-login='eval $(ssh-agent); ssh-add ~/.ssh/id_rsa-*-infra'
 
 alias tf="terraform"
-alias tg="terragrunt"
-
 alias nc-help="echo 'Listener: nc -l -u -v -p <port>   Sender: nc -v -u <address> <port>'"
