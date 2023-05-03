@@ -1,21 +1,21 @@
 # Activate autocomplete for zsh
 autoload -U compinit && compinit
 
-# Kubectl autocomplete
+# Kubectl 
 source <(kubectl completion zsh)
 complete -F __start_kubectl kc
 
-# Helm autocomplete
+# Helm 
 source <(helm completion zsh)
 
-# Rclone autocomplete
+# Rclone 
 #source <(rclone completion zsh)
 
-# Argocd autocomplete
+# Argocd
 compdef _argocd argocd
 source <(argocd completion zsh)
 
-# Stern autocomplete 
+# Stern
 # Haven't gotten this to work yet
 #compdef _stern stern
 #source <(stern --completion=zsh)
@@ -32,3 +32,7 @@ _kgsec() {
 
 # Register completion function for kgsec
 compdef _kgsec kgsec
+
+# Minio Client 
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/mc mc
