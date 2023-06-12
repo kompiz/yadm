@@ -36,3 +36,7 @@ compdef _kgsec kgsec
 # Minio Client 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/mc mc
+
+# AWS cli
+complete -C '/usr/local/bin/aws_completer' aws
+export PATH=/usr/local/aws/bin:$PATH
