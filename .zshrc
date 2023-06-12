@@ -59,6 +59,9 @@ export EDITOR="$VISUAL"
 # Use all config.*yaml files in ~/.kube
 export KUBECONFIG=$(echo $(find ~/.kube -type f -name "config*.yaml") | sed 's/[[:space:]]/:/g')
 
+# Set AWS profile
+export AWS_PROFILE=ReadOnly
+
 # Add aliases
 source ~/.aliases
 
