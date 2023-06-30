@@ -31,3 +31,10 @@ set shiftwidth=2
 let g:indentLine_setConceal = 1
 let g:indentLine_leadingSpaceChar='·'
 let g:indentLine_leadingSpaceEnabled='1'
+
+" Disable json formatting and markdown formatting
+let g:vim_json_conceal=0
+let g:markdown_syntax_conceal=0
+
+" Toggle indentLine plugin with ctrl+i
+nnoremap <C-i> :IndentLinesToggle<CR>

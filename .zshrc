@@ -14,7 +14,14 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 COMPLETION_WAITING_DOTS="true"
 
-HIST_STAMPS="yyyy/mm/dd"
+
+# History
+HISTFILESIZE=1000000
+HISTSIZE=1000000
+HISTCONTROL=ignoreboth
+HISTTIMEFORMAT='%F %T '
+setopt EXTENDED_HISTORY
+PROMPT_COMMAND='history -a'
 
 # Test if machine has lxd-completion-zsh plugin, and if not, set an empty var
 if [ -d ~/.oh-my-zsh/custom/plugins/lxd-completion-zsh ]; then
@@ -60,7 +67,7 @@ export EDITOR="$VISUAL"
 export KUBECONFIG=$(echo $(find ~/.kube -type f -name "config*.yaml") | sed 's/[[:space:]]/:/g')
 
 # Set AWS profile
-export AWS_PROFILE=ReadOnly
+export AWS_REGION=eu-north-1
 
 # Add aliases
 source ~/.aliases

@@ -1,9 +1,10 @@
 # Argocd 
 
 alias acd="argocd"
-alias acdlist="argocd app list"
-alias acdget="argocd app get"
 alias acddel="argocd app delete"
+alias acdedit="argocd app edit"
+alias acdget="argocd app get"
+alias acdlist="argocd app list"
 alias acdsync="argocd app sync"
 alias acdsync-all-apps="argocd app sync -l app.kubernetes.io/instance=apps"
 alias appset="argocd appset"
@@ -66,7 +67,8 @@ alias kt="kubetail"
 alias ks="kubeseal"
 
 alias kshell='kubectl run -it --image wbitt/network-multitool --restart Never --rm=false shell -- /bin/bash'
-
+alias kshelldset='echo -e "apiVersion: apps/v1\nkind: DaemonSet\nmetadata:\n  name: network-multitool\nspec:\n  selector:\n    matchLabels:\n      name: network-multitool\n  template:\n    metadata:\n      labels:\n        name: network-multitool\n    spec:\n      containers:\n      - name: network-multitool\n        image: wbitt/network-multitool" | kubectl apply -f -
+'
 
 
 # Misc 
@@ -77,6 +79,7 @@ alias re-zshrc="source ~/.zshrc"
 alias gh-login='eval $(ssh-agent); ssh-add ~/.ssh/id_rsa-*-github'
 alias bb-login='eval $(ssh-agent); ssh-add ~/.ssh/id_rsa-*-bitbucket'
 alias infra-login='eval $(ssh-agent); ssh-add ~/.ssh/id_rsa-*-infra'
+alias tf-login='AWS_PROFILE=terraform aws sso login'
 
 alias tf="terraform"
 alias nc-help="echo 'Listener: nc -l -u -v -p <port>   Sender: nc -v -u <address> <port>'"
