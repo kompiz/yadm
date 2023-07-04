@@ -1,3 +1,6 @@
+" Make backspace behave as expected on MacOS
+set backspace=indent,eol,start
+
 " Make shift+enter insert line without entering insert mode (note: shift+enter sends escape sequence "[13;2u", added in iterm2)
 nnoremap <S-Enter> moO<Esc>`o
 
