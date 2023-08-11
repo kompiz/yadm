@@ -14,6 +14,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 COMPLETION_WAITING_DOTS="true"
 
+# Add homebrew autocomplete support
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
 # History
 HISTFILESIZE=1000000
@@ -30,12 +32,12 @@ else
   export LXD_COMPL_ZSH=''
 fi
 
-# Test if machine has kubetail plugin, and if not, set an empty var
-if [ -d ~/.oh-my-zsh/custom/plugins/kubetail ]; then
-  export KUBETAIL_ZSH=kubetail
-else
-  export KUBETAIL_ZSH=''
-fi
+## Test if machine has kubetail plugin, and if not, set an empty var
+#if [ -d ~/.oh-my-zsh/custom/plugins/kubetail ]; then
+#  export KUBETAIL_ZSH=kubetail
+#else
+#  export KUBETAIL_ZSH=''
+#fi
 
 plugins=($KUBETAIL_ZSH $LXD_COMPL_ZSH git zsh-autosuggestions)
 
