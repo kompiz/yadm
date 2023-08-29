@@ -41,3 +41,31 @@ let g:markdown_syntax_conceal=0
 
 " Toggle indentLine plugin with ctrl+i
 nnoremap <C-i> :IndentLinesToggle<CR>
+
+" Toggle display of trailing whitespace
+function! ToggleTrailingWhitespace()
+    if !exists('w:displaying_trailing_ws')
+        let w:displaying_trailing_ws = 1
+        match ErrorMsg /\s\+$/
+    else
+        let w:displaying_trailing_ws = !w:displaying_trailing_ws
+        if !w:displaying_trailing_ws
+            match NONE
+        else
+            match ErrorMsg /\s\+$/
+        endif
+    endif
+endfunction
+
+nnoremap <C-s> :call ToggleTrailingWhitespace()<CR>
+
+" Toggle display line numbers on and off
+function! ToggleLineNumbers()
+    if &number
+        set nonumber
+    else
+        set number
+    endif
+endfunction
+
+nnoremap <C-l> :call ToggleLineNumbers()<CR>
