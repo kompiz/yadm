@@ -40,3 +40,6 @@ complete -o nospace -C /usr/local/bin/mc mc
 # AWS cli
 complete -C '/usr/local/bin/aws_completer' aws
 export PATH=/usr/local/aws/bin:$PATH
+
+# Azure cli
+source /opt/homebrew/etc/bash_completion.d/az

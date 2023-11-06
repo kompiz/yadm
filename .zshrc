@@ -86,3 +86,9 @@ if [ -f ~/.misc ]; then
 else
   # Do nothing if the file doesn't exist
 fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/wille/bin/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/wille/bin/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/wille/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/wille/bin/google-cloud-sdk/completion.zsh.inc'; fi

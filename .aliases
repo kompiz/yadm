@@ -70,6 +70,9 @@ alias kshell='kubectl run -it --image wbitt/network-multitool --restart Never --
 alias kshelldset='echo -e "apiVersion: apps/v1\nkind: DaemonSet\nmetadata:\n  name: network-multitool\nspec:\n  selector:\n    matchLabels:\n      name: network-multitool\n  template:\n    metadata:\n      labels:\n        name: network-multitool\n    spec:\n      containers:\n      - name: network-multitool\n        image: wbitt/network-multitool" | kubectl apply -f -
 '
 
+alias helmlist='helm template . |kubectl apply -f - --dry-run=client'
+
+
 
 # Misc 
 
