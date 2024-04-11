@@ -43,7 +43,10 @@ alias keir="kubectl edit ingressroute"
 alias kep="kubectl edit pod"
 alias kes="kubectl edit svc"
 alias kg="kubectl get"
+alias kgbaddepl="kubectl get deployments -o custom-columns=NAME:.metadata.name,READY:.status.readyReplicas,DESIRED:.spec.replicas,UP-TO-DATE:.status.updatedReplicas,AVAILABLE:.status.availableReplicas | awk 'NR==1 || \$2!=\$3 || \$4!=\$3 || \$5!=\$3'"
+alias kgevents="kubectl get events --sort-by='.lastTimestamp'"
 alias kgeverything="kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found -oname"
+alias kgnotrunning="kg pods -A | grep -v Running | grep -v Completed"
 alias kgnp="kubectl get networkpolicy"
 alias kgnpa="kubectl get networkpolicy -A"
 alias kgp="kubectl get pods -o wide"
@@ -86,3 +89,6 @@ alias tf-login='AWS_PROFILE=terraform aws sso login'
 
 alias tf="terraform"
 alias nc-help="echo 'Listener: nc -l -u -v -p <port>   Sender: nc -v -u <address> <port>'"
+
+alias cat="bat --style="plain""
+#alias vim="nvim"

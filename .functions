@@ -1,28 +1,12 @@
-# Show base64 encoded secrets
-kgsec() { kubectl get secret "$1" -ojson | jq -r '.data | to_entries[] | "\(.key):\(.value | @base64d)"'; }
-
-
-
-# Check certificate issuer, subject, and relevant dates - does not work on macos
-certchk() { 
-    if [[ $1 ]]; then
-        openssl storeutl -noout -text -certs "$1" | grep 'Issuer:\|Validity\|Not Before\|Not After\|Subject:\|Alternative\|DNS:'
-    else
-        xargs openssl storeutl -noout -text -certs | grep 'Issuer:\|Validity\|Not Before\|Not After\|Subject:\|Alternative\|DNS:'
-    fi
-}
-
-
-
 # Recursive replace on macos/BSD sed - use with care, prob super dangerous =)
 # Only add if on macos
 if [ -d /Users ]; then
     recurs-replace() {
-        grep -e "$1" -rl . | xargs sed -i '' "s/$1/$2/g"
+        grep -e "$1" -rl . | while IFS= read -r file; do
+            sed -i '' "s/$1/$2/g" "$file"
+        done
     }
-else
 fi
-
 
 
 # If on macos, set language

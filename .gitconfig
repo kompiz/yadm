@@ -4,3 +4,5 @@
 [pull]
 	prune = true
 	rebase = true
+[alias]
+	logtree = log --graph --format=format:'%C(bold blue)%h%C(reset) - %ai %C(bold green)(%ar)%C(reset) %s - %C(dim white)%an%C(reset)%C(auto)%d%C(reset)'

@@ -1,3 +1,17 @@
+" Load vim-plug
+call plug#begin('~/.vim/plugged')
+
+" Add plugins here, for example:
+" Plug 'scrooloose/nerdtree'
+Plug 'elzr/vim-json'
+Plug 'scrooloose/syntastic'
+" Plug 'dense-analysis/ale'
+
+call plug#end()
+
+" Do not conceal quotes in json
+let g:vim_json_syntax_conceal = 0
+
 " Make backspace behave as expected on MacOS
 set backspace=indent,eol,start
 

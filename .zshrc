@@ -11,6 +11,7 @@ export PATH=$HOME/bin:/usr/local/bin:$HOME/go/bin:$HOME/.local/bin:$PATH
 export ZSH=~/.oh-my-zsh
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
+export BAT_THEME="Coldark-Dark"
 
 COMPLETION_WAITING_DOTS="true"
 
