@@ -5,6 +5,7 @@ call plug#begin('~/.vim/plugged')
 " Plug 'scrooloose/nerdtree'
 Plug 'elzr/vim-json'
 Plug 'scrooloose/syntastic'
+Plug 'towolf/vim-helm'
 " Plug 'dense-analysis/ale'
 
 call plug#end()

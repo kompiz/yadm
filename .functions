@@ -16,6 +16,29 @@ else
 fi
 
 
+# Watch pods
+wkgpod() {
+    watch "kubectl get pods -A | grep '$1'"
+}
+
+# Watch pv
+wkgpv() {
+    watch "kubectl get pv -A | grep '$1'"
+}
+
+# Watch pvc
+wkgpvc() {
+    watch "kubectl get pvc -A | grep '$1'"
+}
+
+## Make kubectl returns results by creation time by default
+#kubectl() {
+#    if [[ "$1" == "get" ]]; then
+#        command kubectl get --sort-by=.metadata.creationTimestamp "${@:2}"
+#    else
+#        command kubectl "$@"
+#    fi
+#}
 
 # Function for testing piping
 pipetest() { 

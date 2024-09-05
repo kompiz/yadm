@@ -75,7 +75,11 @@ alias kshelldset='echo -e "apiVersion: apps/v1\nkind: DaemonSet\nmetadata:\n  na
 
 alias helmlist='helm template . |kubectl apply -f - --dry-run=client'
 
+alias pfwd-alertmanager-login='kubectl port-forward -n monitoring services/vmalertmanager-victoria-metrics-k8s-stack 9093:9093 & sleep 0.5; open -a Firefox http://localhost:9093'
+alias pfwd-vmagent-login='kubectl port-forward -n monitoring services/vmagent-victoria-metrics-k8s-stack 8429:8429 & sleep 0.5; open -a Firefox http://localhost:8429'
+alias pfwd-s3='kubectl port-forward -n rook-ceph services/rook-ceph-rgw-mccs-ceph-s3 80:80'
 
+alias argologin='kubens argocd && argocd admin dashboard & sleep 0.5; open -a Firefox http://localhost:8080 &'
 
 # Misc 
 
@@ -91,4 +95,5 @@ alias tf="terraform"
 alias nc-help="echo 'Listener: nc -l -u -v -p <port>   Sender: nc -v -u <address> <port>'"
 
 alias cat="bat --style="plain""
-#alias vim="nvim"
+alias hist="history|grep"
+alias vim="nvim"
